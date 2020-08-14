@@ -2,10 +2,9 @@ package com.example.demo.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-import com.example.demo.DTO.ResponseApiRest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.demo.DTO.DataPerson;
+import com.example.demo.DTO.StatusPerson;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class RestApiController {
@@ -14,9 +13,18 @@ public class RestApiController {
     private final AtomicLong counter = new AtomicLong();
 
     @GetMapping("/my-api-rest")
-    public ResponseApiRest greeting(@RequestParam(value = "name", defaultValue = "World") String name,
-                                    @RequestParam(value = "status", defaultValue = "true") Boolean status) {
-        return new ResponseApiRest(counter.incrementAndGet(), String.format(template, name), status);
+    public StatusPerson getApiRest(@RequestParam(value = "name", defaultValue = "World") String name,
+                                   @RequestParam(value = "status", defaultValue = "true") Boolean status) {
+        return new StatusPerson(counter.incrementAndGet(),
+                String.format(template, name), status);
+    }
+
+    @PostMapping(path = "/my-api-rest", consumes = "application/json", produces = "application/json")
+    public DataPerson postApiRest(@RequestBody DataPerson dataPerson) {
+        return new DataPerson(dataPerson.getId(),
+                dataPerson.getName(),
+                dataPerson.getAge(),
+                dataPerson.getEmployed());
     }
 
 }

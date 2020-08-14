@@ -1,12 +1,12 @@
 package com.example.demo.DTO;
 
-public class ResponseApiRest {
+public class StatusPerson {
 
     private final long id;
     private final String content;
     private final Boolean status;
 
-    public ResponseApiRest(long id, String content, Boolean status) {
+    public StatusPerson(long id, String content, Boolean status) {
         this.id = id;
         this.content = content;
         this.status = status;

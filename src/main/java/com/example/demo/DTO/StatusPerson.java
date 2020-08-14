@@ -20,7 +20,7 @@ public class StatusPerson {
         return content;
     }
 
-    public Boolean getStatusOK() {
+    public Boolean getStatus() {
         return status;
     }
 

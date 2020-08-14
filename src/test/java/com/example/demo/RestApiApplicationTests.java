@@ -25,7 +25,7 @@ class RestApiApplicationTests {
 	@Test
 	void getApiRest() throws Exception {
 		String response = gson.toJson(new StatusPerson(1, "Hello, Maria!", true));
-		mvc.perform(MockMvcRequestBuilders.get("/my-api-rest?name=Maria").accept(MediaType.APPLICATION_JSON))
+		mvc.perform(MockMvcRequestBuilders.get("/my-api-rest").queryParam("name","Maria"))
 				.andExpect(status().isOk())
 				.andExpect(content().string(equalTo(response)));
 	}

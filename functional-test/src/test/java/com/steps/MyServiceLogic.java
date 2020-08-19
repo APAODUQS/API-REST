@@ -2,13 +2,13 @@ package com.steps;
 
 public class MyServiceLogic {
 
-    public String URL;
+    public static String URL;
 
-    public void setURL(String url){
+    public static void setURL(String url){
         URL = url;
     }
 
-    public String getURL(){
+    public static String getURL(){
         return URL;
     }
 }

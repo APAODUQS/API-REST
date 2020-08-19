@@ -1,5 +1,7 @@
 package com.steps;
 
+//import com.example.demo.DTO.StatusPerson;
+import com.google.gson.Gson;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
@@ -8,9 +10,11 @@ import org.junit.Assert;
 
 public class MyServiceSteps {
 
-    MyServiceLogic myServiceLogic = new MyServiceLogic();
-    HttpResponse response;
-    String name;
+    private MyServiceLogic myServiceLogic;
+    private HttpResponse response;
+    private String name;
+    private Gson gson = new Gson();
+
 
     @Given("^the username is: (.*)$")
     public void setUsername(String username) {
@@ -30,10 +34,19 @@ public class MyServiceSteps {
     }
 
     @Then("^the response is (\\d+)$")
-    public void getResponse(Integer code) {
+    public void getResponse(Integer codeExpected) {
         Integer codeResponse = response.getStatus();
-        Assert.assertEquals(code, codeResponse);
-        System.out.println("The response is " + code);
+        Assert.assertEquals(codeExpected, codeResponse);
+        System.out.println("The response is " + codeExpected);
     }
 
+    @And("^the content response is: (.*)$")
+    public void getBodyResponse(String nameExpected) {
+//        StatusPerson statusPerson = gson.fromJson(response.getBody().toString(), StatusPerson.class);
+//        String currentName = statusPerson.getContent();
+        String currentName = response.getBody().toString();
+        currentName = currentName.substring(currentName.indexOf("content") + 10, currentName.indexOf("status") - 3);
+        Assert.assertEquals(nameExpected, currentName);
+        System.out.println("The response is " + nameExpected);
+    }
 }

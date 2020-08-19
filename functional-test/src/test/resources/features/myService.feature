@@ -7,3 +7,4 @@ Feature: My Service Functional Test
     Given the username is: Maria
     When the user does a GET petition
     Then the response is 200
+    And the content response is: Hello, Maria!

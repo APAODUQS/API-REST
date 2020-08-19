@@ -4,7 +4,7 @@ import cucumber.api.java.en.Given;
 
 public class BackgroundSteps {
 
-    MyServiceLogic myServiceLogic = new MyServiceLogic();
+    private MyServiceLogic myServiceLogic;
 
     @Given("^the service: (.*)$")
     public void setService(String url) {

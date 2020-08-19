@@ -1,6 +1,6 @@
 package com.steps;
 
-//import com.example.demo.DTO.StatusPerson;
+import com.example.demo.DTO.StatusPerson;
 import com.google.gson.Gson;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
@@ -42,10 +42,10 @@ public class MyServiceSteps {
 
     @And("^the content response is: (.*)$")
     public void getBodyResponse(String nameExpected) {
-//        StatusPerson statusPerson = gson.fromJson(response.getBody().toString(), StatusPerson.class);
-//        String currentName = statusPerson.getContent();
-        String currentName = response.getBody().toString();
-        currentName = currentName.substring(currentName.indexOf("content") + 10, currentName.indexOf("status") - 3);
+        StatusPerson statusPerson = gson.fromJson(response.getBody().toString(), StatusPerson.class);
+        String currentName = statusPerson.getContent();
+//        String currentName = response.getBody().toString();
+//        currentName = currentName.substring(currentName.indexOf("content") + 10, currentName.indexOf("status") - 3);
         Assert.assertEquals(nameExpected, currentName);
         System.out.println("The response is " + nameExpected);
     }

@@ -1,0 +1,14 @@
+version: '2.2'
+services:
+  my_service:
+    build: ../
+    image: my_service
+    container_name: my_service
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./data/my_service:/config
+    ports:
+      - 8080:8080
+    environment:
+      PROFILE: test

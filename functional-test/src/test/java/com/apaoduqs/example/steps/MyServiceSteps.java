@@ -3,13 +3,11 @@ package com.apaoduqs.example.steps;
 import com.apaoduqs.example.DTO.StatusPerson;
 import com.google.gson.Gson;
 import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import cucumber.api.java.en.*;
 import org.testng.Assert;
+
+import java.util.HashMap;
 
 public class MyServiceSteps {
 
@@ -27,10 +25,11 @@ public class MyServiceSteps {
     @When("^the user does a (.*) petition$")
     public void callService(String petition) throws UnirestException {
         System.out.println("The user does a " + petition + " petition");
-        response = Unirest.get(MyServiceLogic.getURL())
-            .queryString("name", name)
-            .header("Accept", "application/json")
-            .asString();
+        HashMap<String, Object> query = new HashMap<>();
+        HashMap<String, String> header = new HashMap<>();
+        query.put("name", name);
+        header.put("Accept", "application/json");
+        response = MyServiceLogic.getRequest(query, header);
         System.out.println("The Response is: " + response);
         System.out.println("The Body is: " + response.getBody());
     }

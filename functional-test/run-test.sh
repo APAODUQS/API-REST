@@ -10,7 +10,6 @@ docker-compose -f functional-test/docker-compose.yml up --build -d my_service
 echo "Waiting 5 seconds, connecting My Service...";
 sleep 5;
 
-
 mvn -f functional-test test
 
 testReturn=$?

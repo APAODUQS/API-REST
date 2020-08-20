@@ -12,6 +12,11 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
  */
 @CucumberOptions(
         features = {"classpath:features"},
-        glue = {"com.apaoduqs.example.steps"}
+        glue = {"com.apaoduqs.example.steps"},
+        format = {"pretty", // Cucumber report formats and location to store them in phone
+                "html:target/CucumberReports/cucumber-html-report",
+                "json:target/CucumberReports/cucumber.json",
+                "junit:target/CucumberReports/cucumber.xml"
+        }
 )
 public class CucumberTestRunner extends AbstractTestNGCucumberTests { }

@@ -13,7 +13,6 @@ import org.testng.Assert;
 
 public class MyServiceSteps {
 
-    private MyServiceLogic myServiceLogic;
     private HttpResponse response;
     private String name;
     private final Gson gson = new Gson();

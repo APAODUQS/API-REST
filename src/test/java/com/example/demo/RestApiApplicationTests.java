@@ -18,9 +18,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class RestApiApplicationTests {
 
+	private final Gson gson = new Gson();
+
 	@Autowired
 	private MockMvc mvc;
-	private Gson gson = new Gson();
 
 	@Test
 	void getApiRest() throws Exception {

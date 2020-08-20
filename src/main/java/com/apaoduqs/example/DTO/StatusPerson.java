@@ -1,4 +1,4 @@
-package com.example.demo.DTO;
+package com.apaoduqs.example.DTO;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

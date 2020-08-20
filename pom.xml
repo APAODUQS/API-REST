@@ -9,7 +9,7 @@
         <version>2.3.2.RELEASE</version>
     </parent>
 
-    <groupId>com.example</groupId>
+    <groupId>com.apaoduqs.example</groupId>
     <artifactId>my-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>

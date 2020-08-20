@@ -1,4 +1,4 @@
-package com.steps;
+package com.apaoduqs.example.steps;
 
 import cucumber.api.java.en.Given;
 

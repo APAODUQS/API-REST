@@ -1,4 +1,4 @@
-package com.setup;
+package com.apaoduqs.example.setup;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
@@ -12,6 +12,6 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
  */
 @CucumberOptions(
         features = {"classpath:features"},
-        glue = {"com.steps"}
+        glue = {"com.apaoduqs.example.steps"}
 )
 public class CucumberTestRunner extends AbstractTestNGCucumberTests { }

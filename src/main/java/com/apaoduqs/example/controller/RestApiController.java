@@ -1,9 +1,9 @@
-package com.example.demo.controller;
+package com.apaoduqs.example.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-import com.example.demo.DTO.DataPerson;
-import com.example.demo.DTO.StatusPerson;
+import com.apaoduqs.example.DTO.DataPerson;
+import com.apaoduqs.example.DTO.StatusPerson;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

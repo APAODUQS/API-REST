@@ -1,6 +1,6 @@
-package com.steps;
+package com.apaoduqs.example.steps;
 
-import com.example.demo.DTO.StatusPerson;
+import com.apaoduqs.example.DTO.StatusPerson;
 import com.google.gson.Gson;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;

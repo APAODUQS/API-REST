@@ -1,4 +1,4 @@
-package com.example.demo.DTO;
+package com.apaoduqs.example.DTO;
 
 public class DataPerson {
 

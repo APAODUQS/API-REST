@@ -1,7 +1,7 @@
-package com.example.demo;
+package com.apaoduqs.example;
 
-import com.example.demo.DTO.DataPerson;
-import com.example.demo.DTO.StatusPerson;
+import com.apaoduqs.example.DTO.DataPerson;
+import com.apaoduqs.example.DTO.StatusPerson;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

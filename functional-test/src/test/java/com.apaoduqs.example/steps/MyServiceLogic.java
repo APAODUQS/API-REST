@@ -1,4 +1,4 @@
-package com.steps;
+package com.apaoduqs.example.steps;
 
 public class MyServiceLogic {
 

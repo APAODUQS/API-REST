@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#mvn clean
-#mvn package
 cp -f src/main/java/com/apaoduqs/example/DTO/* functional-test/src/test/java/com/apaoduqs/example/DTO/
 docker-compose -f functional-test/docker-compose.yml down --rmi local
 docker build -t my_service .

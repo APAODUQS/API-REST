@@ -3,6 +3,7 @@ package com.apaoduqs.example.steps;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+
 import java.util.HashMap;
 
 public class MyServiceLogic {
@@ -20,12 +21,11 @@ public class MyServiceLogic {
                 .asString();
     }
 
-    public static HttpResponse postRequest(HashMap<String, Object> queryParam, HashMap<String, String> headerParam, Object bodyParam) throws UnirestException {
+    public static HttpResponse postRequest(HashMap<String, String> headerParam, String bodyParam) throws UnirestException {
         return Unirest.post(URL)
-                .queryString(queryParam)
                 .headers(headerParam)
                 .body(bodyParam)
-                .asString();
+                .asJson();
     }
 
 }

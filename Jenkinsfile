@@ -34,7 +34,7 @@ pipeline {
             notifyEmail()
             notifyTeams()
             junit 'target/surefire-reports/*.xml'
-             cucumber buildStatus: 'UNSTABLE',
+            cucumber buildStatus: 'UNSTABLE',
                                      fileIncludePattern: '*cucumber.json',
                                      jsonReportDirectory: 'functional-test/target/CucumberReports/'
         }

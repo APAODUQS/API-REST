@@ -2,12 +2,16 @@ version: '2.2'
 services:
   db_postgres:
     image: postgres:latest
+    restart: always
+    container_name: db-mysql
     ports:
       - 5432:5432
     environment:
       POSTGRES_DB: my_db
       POSTGRES_USER: my_db
       POSTGRES_PASSWORD: my_db
+    volumes:
+      - ./src/test/resources/scripts/postgres:/docker-entrypoint-initdb.d
   my_service:
     build: ../
     image: my_service

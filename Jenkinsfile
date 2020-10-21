@@ -27,10 +27,9 @@ pipeline {
     post {
 
         always {
-            print('PAYLOAD: ' + payload)
             setVariables()
-            //notifyEmail()
-            //notifyTeams()
+            notifyEmail()
+            notifyTeams()
             junit 'target/surefire-reports/*.xml'
             cucumber buildStatus: 'UNSTABLE',
                                      fileIncludePattern: '*cucumber.json',
@@ -42,11 +41,12 @@ pipeline {
 }
 
 def setVariables() {
-        def object_kind = 'Object Kind: Push or Merge Request'
-        def user_name = 'Username who does the changes in the repo'
-        def user_email = 'User email'
-        def total_commits_count = '0'
+      if(payload == "Manual") {
+        def object_kind = 'Push'
+        def user_name = 'APAODUQS'
+        def user_email = 'angela.duquino@appgate.com'
         def commit_messages = 'Manual'
+      }
 }
 
 def notifyEmail() {

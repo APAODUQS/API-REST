@@ -6,7 +6,7 @@ Feature: My Service Functional Test
   Scenario Outline: Get Petition
     Given the username: <name>
     When the user searches his name
-    Then the response is 400
+    Then the response is 200
     And the content response is: Hello, <name>!
     Examples:
       | name  |
@@ -19,7 +19,7 @@ Feature: My Service Functional Test
     And the user age: <age>
     And the user is employed: <employed>
     When the user ingress his information
-    Then the response is 400
+    Then the response is 200
     And the content response has the username: <name>
     And the content response has the age: <age>
     And the content response has the employed: <employed>

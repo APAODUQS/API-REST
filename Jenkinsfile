@@ -3,11 +3,7 @@ pipeline {
     agent { label 'Agent' }
 
     parameters {
-        string(name: 'object_kind', defaultValue: 'Manual', description: 'Object Kind: Push or Merge Request')
-        string(name: 'user_name', defaultValue: 'Manual', description: 'Username who does the changes in the repo')
-        string(name: 'user_email', defaultValue: 'angela.duquino@appgate.com', description: 'User email')
-        string(name: 'total_commits_count', defaultValue: '0', description: 'Total commits done')
-        string(name: 'commit_messages', defaultValue: 'Manual', description: 'Commit messages done')
+        string(name: 'payload', defaultValue: 'Manual', description: 'Payload')
     }
 
     stages {
@@ -31,8 +27,9 @@ pipeline {
     post {
 
         always {
-            notifyEmail()
-            notifyTeams()
+            setVariables()
+            //notifyEmail()
+            //notifyTeams()
             junit 'target/surefire-reports/*.xml'
             cucumber buildStatus: 'UNSTABLE',
                                      fileIncludePattern: '*cucumber.json',
@@ -41,6 +38,14 @@ pipeline {
 
     }
 
+}
+
+def setVariables() {
+        def object_kind = 'Object Kind: Push or Merge Request'
+        def user_name = 'Username who does the changes in the repo'
+        def user_email = 'User email'
+        def total_commits_count = '0'
+        def commit_messages = 'Manual'
 }
 
 def notifyEmail() {

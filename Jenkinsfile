@@ -27,7 +27,7 @@ pipeline {
     post {
 
         always {
-            echo 'PAYLOAD: ${payload}'
+            print('PAYLOAD: ' + payload)
             setVariables()
             //notifyEmail()
             //notifyTeams()

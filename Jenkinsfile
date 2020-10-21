@@ -2,6 +2,13 @@ pipeline {
 
     agent { label 'Agent' }
 
+    environment {
+        object_kind = 'Push'
+        user_name = 'APAODUQS'
+        user_email = 'angela.duquino@appgate.com'
+        commit_messages = 'Manual'
+    }
+
     parameters {
         string(name: 'payload', defaultValue: 'Manual', description: 'Payload')
     }
@@ -38,15 +45,6 @@ pipeline {
 
     }
 
-}
-
-def setVariables() {
-      if(payload == "Manual") {
-        def object_kind = 'Push'
-        def user_name = 'APAODUQS'
-        def user_email = 'angela.duquino@appgate.com'
-        def commit_messages = 'Manual'
-      }
 }
 
 def notifyEmail() {

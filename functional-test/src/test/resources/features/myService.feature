@@ -1,7 +1,7 @@
 Feature: My Service Functional Test
 
   Background: Setup my service
-    Given the service: http://192.168.0.27:8080/my-api-rest
+    Given the service: http://localhost:8080/my-api-rest
 
   Scenario Outline: Get Petition
     Given the username: <name>

@@ -1,6 +1,6 @@
-name: learn-github-actions
+name: api-rest
 on: [push]
-jobs:047
+jobs:
   api-rest:
     name: api-rest runner
     runs-on: ubuntu-latest

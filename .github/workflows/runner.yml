@@ -6,5 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - run: mvn clean package
-      - run: sh functional-test/run-test.sh
+      - name: Clean - Run Unit Test - Package
+        run: mvn clean package
+      - name: Testing 
+        run: sh functional-test/run-test.sh
+      - name: Generate Report
+        uses: deblockt/cucumber-report-annotations-action@v1.7
+        with:
+            path: "functional-test/target/CucumberReports/*cucumber.json"

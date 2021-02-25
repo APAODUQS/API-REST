@@ -15,7 +15,7 @@ jobs:
         uses: deblockt/cucumber-report-annotations-action@v1.7
         with:
             path: "functional-test/target/CucumberReports/*cucumber.json"
-      - name: Send mail
+      - name: Send email
         if: always()
         uses: dawidd6/action-send-mail@v2
         with:

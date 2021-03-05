@@ -15,6 +15,7 @@ jobs:
         if: always()
         with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
+          report_paths: functional-test/target/CucumberReports/*cucumber.xml
       - name: Cucumber Report Annotations
         if: always()
         uses: deblockt/cucumber-report-annotations-action@v1.7
@@ -39,23 +40,23 @@ jobs:
           to: pao.duq_17@hotmail.com
           # from email name
           from: GitHub Runner            
-      - name: Microsoft Teams Notification
-        uses: toko-bifrost/ms-teams-deploy-card@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          webhook-uri: ${{ secrets.MSTEAMS_WEBHOOK }}
-          custom-facts: |
-            - name: Custom Fact Name 1
-              value: Custom Fact Value 1
-            - name: Pull Request
-              value: "http://example.com/${{ github.run_id }}"
-          custom-actions: |
-            - text: View PR
-              url: "http://valid.uri.com"
-            - text: View CI
-              url: "http://example.com/${{ github.run_id }}"
       - name: Publish Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: my-artifact
           path: functional-test/target/CucumberReports/*cucumber.json
+#       - name: Microsoft Teams Notification
+#         uses: toko-bifrost/ms-teams-deploy-card@master
+#         with:
+#           github-token: ${{ secrets.GITHUB_TOKEN }}
+#           webhook-uri: ${{ secrets.MSTEAMS_WEBHOOK }}
+#           custom-facts: |
+#             - name: Custom Fact Name 1
+#               value: Custom Fact Value 1
+#             - name: Pull Request
+#               value: "http://example.com/${{ github.run_id }}"
+#           custom-actions: |
+#             - text: View PR
+#               url: "http://valid.uri.com"
+#             - text: View CI
+#               url: "http://example.com/${{ github.run_id }}"

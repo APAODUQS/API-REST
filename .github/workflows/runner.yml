@@ -20,7 +20,7 @@ jobs:
         uses: deblockt/cucumber-report-annotations-action@v1.7
         with:
             access-token: ${{ secrets.GITHUB_TOKEN }}
-            path: "functional-test/target/CucumberReports/*cucumber.json"
+            path: functional-test/target/CucumberReports/*cucumber.json
       - name: Send email
         if: always()
         uses: dawidd6/action-send-mail@v2
@@ -54,3 +54,8 @@ jobs:
               url: "http://valid.uri.com"
             - text: View CI
               url: "http://example.com/${{ github.run_id }}"
+      - name: Publish Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: functional-test/target/CucumberReports/*cucumber.json

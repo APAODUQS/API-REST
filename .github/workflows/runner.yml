@@ -15,7 +15,7 @@ jobs:
         if: always()
         with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
-          report_paths: functional-test/target/CucumberReports/*cucumber.xml
+          path: functional-test/target/CucumberReports/*cucumber.xml
       - name: Cucumber Report Annotations
         if: always()
         uses: deblockt/cucumber-report-annotations-action@v1.7

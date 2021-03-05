@@ -40,13 +40,17 @@ jobs:
           # from email name
           from: GitHub Runner            
       - name: Microsoft Teams Notification
-        uses: skitionek/notify-microsoft-teams@master
-        if: always()
+        uses: toko-bifrost/ms-teams-deploy-card@master
         with:
-          webhook_url: ${{ secrets.MSTEAMS_WEBHOOK }}
-          raw: >-
-            {
-              "@type": "MessageCard",
-              "@context": "http://schema.org/extensions",
-              "title": "${{ github.job }} job of ${{ github.repository }} has the status ${{ job.status }}"
-            }  
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          webhook-uri: ${{ secrets.MSTEAMS_WEBHOOK }}
+          custom-facts: |
+            - name: Custom Fact Name 1
+              value: Custom Fact Value 1
+            - name: Pull Request
+              value: "http://example.com/${{ github.run_id }}"
+          custom-actions: |
+            - text: View PR
+              url: "http://valid.uri.com"
+            - text: View CI
+              url: "http://example.com/${{ github.run_id }}"

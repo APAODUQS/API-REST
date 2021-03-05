@@ -10,11 +10,12 @@ jobs:
         run: mvn clean package
       - name: Testing 
         run: sh functional-test/run-test.sh
-      - name: Generate Report
+      - name: Cucumber Report Annotations
         if: always()
         uses: deblockt/cucumber-report-annotations-action@v1.7
         with:
             path: "functional-test/target/CucumberReports/*cucumber.json"
+            access-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Send email
         if: always()
         uses: dawidd6/action-send-mail@v2

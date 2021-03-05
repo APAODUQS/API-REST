@@ -3,7 +3,7 @@ on: [push]
 jobs:
   api-rest:
     name: api-rest runner
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@master
       - name: Clean - Run Unit Test - Package
@@ -26,9 +26,9 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           # email subject
-          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+          subject: ${{ github.job }} job of ${{ github.repository }} has the status ${{ job.status }}
           # email body as text
-          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has the status ${{ job.status }}
           # comma-separated string, send email to
           to: pao.duq_17@hotmail.com
           # from email name
@@ -42,5 +42,5 @@ jobs:
             {
               "@type": "MessageCard",
               "@context": "http://schema.org/extensions",
-              "title": "No ${variables} avaliable in here"
+              "title": "${{ github.job }} job of ${{ github.repository }} has the status ${{ job.status }}"
             }          

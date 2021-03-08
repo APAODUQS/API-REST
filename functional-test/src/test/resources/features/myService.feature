@@ -6,7 +6,7 @@ Feature: My Service Functional Test
   Scenario Outline: Get Petition
     Given the username: <name>
     When the user searches his name
-    Then the response is 200
+    Then the response is 500
     And the content response is: Hello, <name>!
     Examples:
       | name  |

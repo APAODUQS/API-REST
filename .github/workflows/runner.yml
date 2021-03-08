@@ -49,7 +49,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: my-cucumber-tests
-          path: functional-test/target/CucumberReports/cucumber-html-report/*.html
+          path: functional-test/target/CucumberReports/cucumber-html-report/*
 #       - name: Microsoft Teams Notification
 #         uses: toko-bifrost/ms-teams-deploy-card@master
 #         with:

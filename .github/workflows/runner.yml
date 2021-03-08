@@ -10,6 +10,12 @@ jobs:
         run: mvn clean package
       - name: Testing 
         run: sh functional-test/run-test.sh
+      - name: Test Reports
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          files: functional-test/target/surefire-reports/*.xml
       - name: JUnit Report Annotations
         uses: ashley-taylor/junit-report-annotations-action@1.3
         if: always()

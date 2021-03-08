@@ -10,18 +10,12 @@ jobs:
         run: mvn clean package
       - name: Testing 
         run: sh functional-test/run-test.sh
-      - name: Test report
-        uses: check-run-reporter/action@v2.0.0
-        if: ${{ always() }}
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          path: 'target/surefire-reports/*.xml'
       - name: JUnit Report Annotations
-        uses: ashley-taylor/junit-report-annotations-action@1.3
+        uses: scacap/action-surefire-report@v1
         if: always()
         with:
-          access-token: ${{ secrets.GITHUB_TOKEN }}
-          path: 'target/surefire-reports/*.xml'
+          github_token:: ${{ secrets.GITHUB_TOKEN }}
+#           path: 'target/surefire-reports/*.xml'
       - name: Cucumber Report Annotations
         if: always()
         uses: deblockt/cucumber-report-annotations-action@v1.7
@@ -49,8 +43,8 @@ jobs:
       - name: Publish Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
-          path: functional-test/target/CucumberReports/*cucumber.json
+          name: my-cucumber-tests
+          path: functional-test/target/CucumberReports/*cucumber.html
 #       - name: Microsoft Teams Notification
 #         uses: toko-bifrost/ms-teams-deploy-card@master
 #         with:

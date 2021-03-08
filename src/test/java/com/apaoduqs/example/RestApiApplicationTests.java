@@ -37,7 +37,7 @@ class RestApiApplicationTests {
 		mvc.perform(MockMvcRequestBuilders.post("/my-api-rest").contentType(MediaType.APPLICATION_JSON)
 				.content(response))
 				.andExpect(status().isOk())
-				.andExpect(content().string(equalTo("x")));
+				.andExpect(content().string(equalTo(response)));
 	}
 
 }

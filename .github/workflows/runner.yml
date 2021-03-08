@@ -10,7 +10,11 @@ jobs:
         run: mvn clean package
       - name: Testing 
         run: sh functional-test/run-test.sh
-     
+      - name: Generate Report
+        id: xunit-viewer
+        uses: AutoModality/action-xunit-viewer@v1
+        with:
+          results: "target/surefire-reports/*.xml"
       - name: JUnit Report Annotations
         uses: ashley-taylor/junit-report-annotations-action@1.3
         if: always()

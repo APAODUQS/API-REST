@@ -14,8 +14,8 @@ jobs:
         uses: scacap/action-surefire-report@v1
         if: always()
         with:
-          github_token:: ${{ secrets.GITHUB_TOKEN }}
-          report_paths: 'target/surefire-reports/*.xml'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+#           report_paths: 'target/surefire-reports/*.xml'
       - name: Cucumber Report Annotations
         if: always()
         uses: deblockt/cucumber-report-annotations-action@v1.7
